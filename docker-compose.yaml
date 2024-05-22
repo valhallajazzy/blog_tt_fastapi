@@ -7,6 +7,6 @@ services:
     environment:
        - POSTGRES_USER=postgres
        - POSTGRES_PASSWORD=postgres
-       - POSTGRES_DB=blog_tt_bd
+       - POSTGRES_DB=blog_tt_db
     ports:
       - "5430:5432"

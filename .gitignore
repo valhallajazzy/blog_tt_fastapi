@@ -3,3 +3,5 @@ poetry.lock
 .venv
 .env
 __pycache__/
+blog/migrations/versions/__pycache__/
+blog/database/__pycache__/

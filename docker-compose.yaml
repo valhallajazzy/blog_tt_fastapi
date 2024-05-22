@@ -1,0 +1,12 @@
+version: "3.0"
+services:
+  db:
+    image: postgres:latest
+    container_name: blog_tt_db
+    restart: always
+    environment:
+       - POSTGRES_USER=postgres
+       - POSTGRES_PASSWORD=postgres
+       - POSTGRES_DB=blog_tt_bd
+    ports:
+      - "5430:5432"

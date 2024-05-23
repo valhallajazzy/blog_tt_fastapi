@@ -10,7 +10,7 @@ router = APIRouter()
 
 
 @router.get('/', status_code=200)
-async def get_clients(db: AsyncSession = Depends(get_db)):
+async def get_authors(db: AsyncSession = Depends(get_db)):
     return await get_authors_db(db=db)
 
 

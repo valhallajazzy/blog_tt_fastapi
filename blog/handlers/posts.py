@@ -30,7 +30,8 @@ async def create_post_db(db: AsyncSession, post_data: PostBase):
 
 
 async def get_posts_db(db: AsyncSession):
-    return db.execute(select(Post).all())
+    result = await db.execute(select(Post))
+    return result.scalars().all()
 
 
 async def update_post_db(db: AsyncSession, post_data: PostUpdate):

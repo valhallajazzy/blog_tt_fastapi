@@ -27,7 +27,8 @@ async def create_author_db(db: AsyncSession, author_data: AuthorBase):
 
 
 async def get_authors_db(db: AsyncSession):
-    return db.execute(select(Author).all())
+    result = await db.execute(select(Author))
+    return result.scalars().all()
 
 
 async def update_authors_db(db: AsyncSession, author_data: AuthorBase):

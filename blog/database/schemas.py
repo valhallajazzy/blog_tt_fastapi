@@ -27,7 +27,7 @@ class DeleteBase(BaseModel):
     id: int
 
 
-class PostUpdate(BaseModel, DeleteBase):
+class PostUpdate(DeleteBase):
     title: str
     text: str
 

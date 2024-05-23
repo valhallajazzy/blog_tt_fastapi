@@ -4,14 +4,14 @@ from starlette import status
 
 from database import schemas
 from database.database import get_db
-from handlers.tags import get_tag_db, create_tag_db, delete_tag_db
+from handlers.tags import get_tags_db, create_tag_db, delete_tag_db
 
 router = APIRouter()
 
 
 @router.get('/', status_code=200)
 async def get_tags(db: AsyncSession = Depends(get_db)):
-    return await get_tag_db(db=db)
+    return await get_tags_db(db=db)
 
 
 @router.post('/create', status_code=201)

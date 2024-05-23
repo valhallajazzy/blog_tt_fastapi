@@ -22,8 +22,9 @@ async def create_tag_db(db: AsyncSession, tag_data: TagBase):
     }
 
 
-async def get_tag_db(db: AsyncSession):
-    return db.execute(select(Tag).all())
+async def get_tags_db(db: AsyncSession):
+    result = await db.execute(select(Tag))
+    return result.scalars().all()
 
 
 async def delete_tag_db(db: AsyncSession, tag_data: DeleteBase):

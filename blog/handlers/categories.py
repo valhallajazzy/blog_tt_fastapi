@@ -23,7 +23,8 @@ async def create_category_db(db: AsyncSession, category_data: CategoryBase):
 
 
 async def get_category_db(db: AsyncSession):
-    return db.execute(select(Category).all())
+    result = await db.execute(select(Category))
+    return result.scalars().all()
 
 
 async def delete_category_db(db: AsyncSession, category_data: DeleteBase):

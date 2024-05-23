@@ -15,7 +15,7 @@ class Author(Base):
     last_name: Mapped[str] = mapped_column(nullable=False)
     email: Mapped[str] = mapped_column(nullable=False, unique=True)
     posts: Mapped[list["Post"]] = relationship(
-        back_populates="author"
+        backref="author"
     )
 
 
@@ -30,7 +30,7 @@ class Post(Base):
     category_id: Mapped[int] = mapped_column(ForeignKey("categories.id", ondelete="CASCADE"))
 
     tags: Mapped[list["Tag"]] = relationship(
-        back_populates="many_posts",
+        backref="many_posts",
         secondary="posts_tags",
     )
 
@@ -49,7 +49,7 @@ class Tag(Base):
     title: Mapped[str] = mapped_column(nullable=False)
 
     posts: Mapped[list["Post"]] = relationship(
-        back_populates="many_tags",
+        backref="many_tags",
         secondary="posts_tags",
     )
 

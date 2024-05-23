@@ -32,7 +32,9 @@ class PostUpdate(DeleteBase):
     text: str
 
 
-class PostBase(PostUpdate):
+class PostBase(BaseModel):
+    title: str
+    text: str
     author_id: int
     category_id: int
 

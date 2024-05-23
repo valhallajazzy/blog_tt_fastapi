@@ -10,7 +10,7 @@ from database.schemas import PostUpdate, PostBase, DeleteBase
 async def create_post_db(db: AsyncSession, post_data: PostBase):
     author = await db.scalar(select(Author).where(Author.id == post_data.author_id))
     category = await db.scalar(select(Category).where(Category.id == post_data.category_id))
-    if not (author or category):
+    if not author or not category:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail=f"Incorrect author_id or category_id"
@@ -18,7 +18,7 @@ async def create_post_db(db: AsyncSession, post_data: PostBase):
     post = Post(title=post_data.title)
     post.text = post_data.text
     post.author_id = post_data.author_id
-    post.category_id = post.category_id
+    post.category_id = post_data.category_id
     db.add(post)
     await db.commit()
     return {

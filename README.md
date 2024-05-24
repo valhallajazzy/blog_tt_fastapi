@@ -25,6 +25,14 @@
 #### К Swagger возможно перейти по адресу `http://0.0.0.0:8004/docs#/`  
 
 ## Подготовка и запуск проекта
+* Устанавливаем зависимости
+```console
+$ poetry install
+```
+* Активируем виртуальное окружение:
+```console
+$ poetry shell
+```
 * Запускаем БД в docker-compose:  
 ```console
 $ docker-compose up -d
